@@ -1,0 +1,6 @@
+.env
+.dockerignore
+.gitignore
+node_modules/
+.idea/
+validator_keys/

@@ -1,0 +1,7 @@
+{
+  "name": "eth2-testnet-helpers",
+  "version": "1.0.0",
+  "dependencies": {
+    "web3": "^1.4.0"
+  }
+}
