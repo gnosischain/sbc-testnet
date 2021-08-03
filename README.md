@@ -16,7 +16,7 @@ Generate keystore files and deposit data for all validators.
 This can be done by running the following:
 
 ```shell
-./scripts/generate.sh 12341234 16
+./scripts/generate.sh 16
 ```
 
 This command runs the docker container with the forked version of official [eth2.0-deposit-cli](https://github.com/ethereum/eth2.0-deposit-cli).
@@ -113,7 +113,7 @@ Run validator connected to the first node:
 ./prysm.sh validator --config-file config.yml --chain-config-file config.yml
 ```
 
-## Step 7:
+## Step 7
 Verify that both node make some progress in mining blocks:
 
 ```shell
