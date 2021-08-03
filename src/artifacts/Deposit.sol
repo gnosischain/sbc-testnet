@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: CC0-1.0
 
 pragma solidity 0.6.11;
+pragma experimental ABIEncoderV2;
 
 // This interface is designed to be compatible with the Vyper version.
 /// @notice This is the Ethereum 2.0 deposit contract interface.
@@ -103,7 +104,7 @@ contract DepositContract is IDepositContract, ERC165 {
         bytes calldata withdrawal_credentials,
         bytes calldata signature,
         bytes32 deposit_data_root
-    ) override external {
+    ) override public {
         // Extended ABI length checks since dynamic types are used.
         require(pubkey.length == 48, "DepositContract: invalid pubkey length");
         require(withdrawal_credentials.length == 32, "DepositContract: invalid withdrawal_credentials length");
@@ -156,6 +157,20 @@ contract DepositContract is IDepositContract, ERC165 {
         // As the loop should always end prematurely with the `return` statement,
         // this code should be unreachable. We assert `false` just to be safe.
         assert(false);
+    }
+
+    function batch_deposit(
+        bytes[] calldata pubkey,
+        bytes[] calldata withdrawal_credentials,
+        bytes[] calldata signature,
+        bytes32[] calldata deposit_data_root
+    ) external {
+        require(pubkey.length == withdrawal_credentials.length);
+        require(pubkey.length == signature.length);
+        require(pubkey.length == deposit_data_root.length);
+        for (uint256 i = 0; i < pubkey.length; i++) {
+            deposit(pubkey[i], withdrawal_credentials[i], signature[i], deposit_data_root[i]);
+        }
     }
 
     function supportsInterface(bytes4 interfaceId) override external pure returns (bool) {

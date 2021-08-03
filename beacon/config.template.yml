@@ -1,22 +1,22 @@
-CONFIG_NAME: test
+CONFIG_NAME: stake
 # Misc
 # ---------------------------------------------------------------
 # 2**6 (= 64)
 MAX_COMMITTEES_PER_SLOT: 64
 # 2**7 (= 128)
-TARGET_COMMITTEE_SIZE: 4
+TARGET_COMMITTEE_SIZE: 128
 # 2**11 (= 2,048)
 MAX_VALIDATORS_PER_COMMITTEE: 2048
 # 2**2 (= 4)
 MIN_PER_EPOCH_CHURN_LIMIT: 4
 # 2**16 (= 65,536)
-CHURN_LIMIT_QUOTIENT: 65536
+CHURN_LIMIT_QUOTIENT: 2048
 # See issue 563
 SHUFFLE_ROUND_COUNT: 90
 # `2**4` (= 16)
-MIN_GENESIS_ACTIVE_VALIDATOR_COUNT: 16
+MIN_GENESIS_ACTIVE_VALIDATOR_COUNT: 2048
 # Jul 18, 2021, 14:30am UTC
-MIN_GENESIS_TIME: 1626618600
+MIN_GENESIS_TIME: 1627917710
 # 4
 HYSTERESIS_QUOTIENT: 4
 # 1 (minus 0.25)
@@ -30,7 +30,7 @@ SAFE_SLOTS_TO_UPDATE_JUSTIFIED: 8
 # Validator
 # ---------------------------------------------------------------
 # 2**1 (= 2)
-ETH1_FOLLOW_DISTANCE: 2
+ETH1_FOLLOW_DISTANCE: 64
 # 2**4 (= 16)
 TARGET_AGGREGATORS_PER_COMMITTEE: 16
 # 2**0 (= 1)
@@ -38,7 +38,7 @@ RANDOM_SUBNETS_PER_VALIDATOR: 1
 # 2**8 (= 256)
 EPOCHS_PER_RANDOM_SUBNET_SUBSCRIPTION: 256
 # 14 (estimate from Eth1 mainnet)
-SECONDS_PER_ETH1_BLOCK: 14
+SECONDS_PER_ETH1_BLOCK: 15
 
 # Deposit contract
 # ---------------------------------------------------------------
@@ -46,28 +46,28 @@ SECONDS_PER_ETH1_BLOCK: 14
 DEPOSIT_CHAIN_ID: 4
 DEPOSIT_NETWORK_ID: 4
 # Pyrmont test deposit contract on Rinkeby
-DEPOSIT_CONTRACT_ADDRESS: 0xa5455eD6DC59EB31A5F1D8DEC73ae57A138F6D41
+DEPOSIT_CONTRACT_ADDRESS: 0x6Ed3955Ad9bB2A5d0f35e115758e4De56a074b0a
 # Gwei values
 # ---------------------------------------------------------------
 # 2**0 * 10**8 (= 100,000,000) Gwei
-MIN_DEPOSIT_AMOUNT: 100000000
+MIN_DEPOSIT_AMOUNT: 1000000000
 # 2**0 * 10**9 (= 1,000,000,000) Gwei
-MAX_EFFECTIVE_BALANCE: 1000000000
+MAX_EFFECTIVE_BALANCE: 32000000000
 # 2**3 * 10**8 (= 800,000,000) Gwei
-EJECTION_BALANCE: 800000000
+EJECTION_BALANCE: 16000000000
 # 2**0 * 10**8 (= 100,000,000) Gwei
-EFFECTIVE_BALANCE_INCREMENT: 100000000
+EFFECTIVE_BALANCE_INCREMENT: 1000000000
 # Initial values
 # ---------------------------------------------------------------
 # Pyrmont area code
-GENESIS_FORK_VERSION: 0x12341234
-BLS_WITHDRAWAL_PREFIX: 0x04
+GENESIS_FORK_VERSION: 0x00006464
+BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for Test: 36 seconds
-GENESIS_DELAY: 36
+GENESIS_DELAY: 3600
 # 12 seconds
-SECONDS_PER_SLOT: 12
+SECONDS_PER_SLOT: 8
 # 2**0 (= 1) slots 12 seconds
 MIN_ATTESTATION_INCLUSION_DELAY: 1
 # 2**5 (= 32) slots 6.4 minutes
@@ -100,7 +100,7 @@ VALIDATOR_REGISTRY_LIMIT: 1099511627776
 # Reward and penalty quotients
 # ---------------------------------------------------------------
 # 2**6 (= 64)
-BASE_REWARD_FACTOR: 64
+BASE_REWARD_FACTOR: 10
 # 2**9 (= 512)
 WHISTLEBLOWER_REWARD_QUOTIENT: 512
 # 2**3 (= 8)
