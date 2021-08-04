@@ -4,7 +4,7 @@ services:
     image: prysmaticlabs/prysm-beacon-chain:v1.4.2
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9049302
+      --contract-deployment-block 9057140
       --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
       --bootstrap-node ""
       --config-file /config
@@ -14,9 +14,6 @@ services:
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip 192.168.144.2
       --disable-sync
-      --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
     volumes:
       - ./config.yml:/config
       - ./nodekey1.txt:/nodekey1
@@ -28,7 +25,7 @@ services:
     image: prysmaticlabs/prysm-beacon-chain:v1.4.2
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9049302
+      --contract-deployment-block 9057140
       --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
       --bootstrap-node ""
       --config-file /config
@@ -38,9 +35,7 @@ services:
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip 192.168.144.3
       --disable-sync
-      --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QDnGYXm6pg_rwprfgSCFX4QlU_hkxqpg2ohUaaqYxEyKX-GaZLMy2yzECYOwF_C_aYL6DwMJR9SVJneZPWjRtgUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpAJqmwXAABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
     volumes:
       - ./config.yml:/config
       - ./nodekey2.txt:/nodekey2
@@ -48,54 +43,6 @@ services:
     networks:
       sbc:
         ipv4_address: 192.168.144.3
-  node3:
-    image: prysmaticlabs/prysm-beacon-chain:v1.4.2
-    command: |
-      --accept-terms-of-use
-      --contract-deployment-block 9049302
-      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
-      --bootstrap-node ""
-      --config-file /config
-      --chain-config-file /config
-      --rpc-host 0.0.0.0
-      --p2p-priv-key /nodekey3
-      --p2p-local-ip 0.0.0.0
-      --p2p-host-ip 192.168.144.4
-      --disable-sync
-      --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
-    volumes:
-      - ./config.yml:/config
-      - ./nodekey3.txt:/nodekey3
-      - ./node3:/home/.eth2/beaconchaindata
-    networks:
-      sbc:
-        ipv4_address: 192.168.144.4
-  node4:
-    image: prysmaticlabs/prysm-beacon-chain:v1.4.2
-    command: |
-      --accept-terms-of-use
-      --contract-deployment-block 9049302
-      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
-      --bootstrap-node ""
-      --config-file /config
-      --chain-config-file /config
-      --rpc-host 0.0.0.0
-      --p2p-priv-key /nodekey4
-      --p2p-local-ip 0.0.0.0
-      --p2p-host-ip 192.168.144.5
-      --disable-sync
-      --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
-      --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
-    volumes:
-      - ./config.yml:/config
-      - ./nodekey4.txt:/nodekey4
-      - ./node4:/home/.eth2/beaconchaindata
-    networks:
-      sbc:
-        ipv4_address: 192.168.144.5
   validator-init:
     image: prysmaticlabs/prysm-validator:v1.3.11
     command: |
