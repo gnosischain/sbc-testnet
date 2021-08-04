@@ -10,7 +10,7 @@ database:
 chain:
   slotsPerEpoch: 16
   secondsPerSlot: 8
-  genesisTimestamp: 1628098200
+  genesisTimestamp: 1628098800
   minGenesisActiveValidatorCount: 2048
 
 # Note: It is possible to run either the frontend or the indexer or both at the same time

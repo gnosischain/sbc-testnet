@@ -30,7 +30,7 @@ SAFE_SLOTS_TO_UPDATE_JUSTIFIED: 8
 # Validator
 # ---------------------------------------------------------------
 # 2**1 (= 2) ~16 min
-ETH1_FOLLOW_DISTANCE: 64
+ETH1_FOLLOW_DISTANCE: 16
 # 2**4 (= 16)
 TARGET_AGGREGATORS_PER_COMMITTEE: 16
 # 2**0 (= 1)
@@ -65,7 +65,7 @@ BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for Test: ~4 hours
-GENESIS_DELAY: 1200
+GENESIS_DELAY: 600
 # 12 seconds
 SECONDS_PER_SLOT: 7
 # 2**0 (= 1) slots 12 seconds
