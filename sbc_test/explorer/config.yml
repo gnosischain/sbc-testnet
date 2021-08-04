@@ -10,7 +10,7 @@ database:
 chain:
   slotsPerEpoch: 16
   secondsPerSlot: 7
-  genesisTimestamp: 1628098672
+  genesisTimestamp: 1628100000
   minGenesisActiveValidatorCount: 2048
 
 # Note: It is possible to run either the frontend or the indexer or both at the same time
@@ -54,5 +54,5 @@ indexer:
     type: "prysm" # can be either prysm or lighthouse
     pageSize: 100 # the amount of entries to fetch per paged rpc call
   eth1Endpoint: 'https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9'
-  eth1DepositContractAddress: '0xC9c19C3928CA6f84aD2f8e1542A2940c46687290'
-  eth1DepositContractFirstBlock: 9057140
+  eth1DepositContractAddress: '0x6cAfaBB078242C82B540F2B62b4E1c3f481F535C'
+  eth1DepositContractFirstBlock: 9057317

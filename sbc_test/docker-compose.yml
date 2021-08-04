@@ -4,7 +4,7 @@ services:
     image: prysmaticlabs/prysm-beacon-chain:v1.4.2
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9057140
+      --contract-deployment-block 9057317
       --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
       --bootstrap-node ""
       --config-file /config
@@ -25,7 +25,7 @@ services:
     image: prysmaticlabs/prysm-beacon-chain:v1.4.2
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9057140
+      --contract-deployment-block 9057317
       --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
       --bootstrap-node ""
       --config-file /config
