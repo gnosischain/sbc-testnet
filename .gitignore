@@ -2,3 +2,9 @@
 node_modules/
 .idea/
 validator_keys/
+sbc_test/node1
+sbc_test/node2
+sbc_test/node3
+sbc_test/node4
+sbc_test/wallet
+sbc_test/db

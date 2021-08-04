@@ -1,0 +1,179 @@
+version: '3.8'
+services:
+  node1:
+    image: prysmaticlabs/prysm-beacon-chain:v1.4.2
+    command: |
+      --accept-terms-of-use
+      --contract-deployment-block 9049302
+      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
+      --bootstrap-node ""
+      --config-file /config
+      --chain-config-file /config
+      --rpc-host 0.0.0.0
+      --p2p-priv-key /nodekey1
+      --p2p-local-ip 0.0.0.0
+      --p2p-host-ip 192.168.144.2
+      --disable-sync
+      --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
+    configs:
+      - config
+      - nodekey1
+    volumes:
+      - ./node1:/home/.eth2/beaconchaindata
+    networks:
+      sbc:
+        ipv4_address: 192.168.144.2
+  node2:
+    image: prysmaticlabs/prysm-beacon-chain:v1.4.2
+    command: |
+      --accept-terms-of-use
+      --contract-deployment-block 9049302
+      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
+      --bootstrap-node ""
+      --config-file /config
+      --chain-config-file /config
+      --rpc-host 0.0.0.0
+      --p2p-priv-key /nodekey2
+      --p2p-local-ip 0.0.0.0
+      --p2p-host-ip 192.168.144.3
+      --disable-sync
+      --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
+    configs:
+      - config
+      - nodekey2
+    volumes:
+      - ./node2:/home/.eth2/beaconchaindata
+    networks:
+      sbc:
+        ipv4_address: 192.168.144.3
+  node3:
+    image: prysmaticlabs/prysm-beacon-chain:v1.4.2
+    command: |
+      --accept-terms-of-use
+      --contract-deployment-block 9049302
+      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
+      --bootstrap-node ""
+      --config-file /config
+      --chain-config-file /config
+      --rpc-host 0.0.0.0
+      --p2p-priv-key /nodekey3
+      --p2p-local-ip 0.0.0.0
+      --p2p-host-ip 192.168.144.4
+      --disable-sync
+      --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
+    configs:
+      - config
+      - nodekey3
+    volumes:
+      - ./node3:/home/.eth2/beaconchaindata
+    networks:
+      sbc:
+        ipv4_address: 192.168.144.4
+  node4:
+    image: prysmaticlabs/prysm-beacon-chain:v1.4.2
+    command: |
+      --accept-terms-of-use
+      --contract-deployment-block 9049302
+      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
+      --bootstrap-node ""
+      --config-file /config
+      --chain-config-file /config
+      --rpc-host 0.0.0.0
+      --p2p-priv-key /nodekey4
+      --p2p-local-ip 0.0.0.0
+      --p2p-host-ip 192.168.144.5
+      --disable-sync
+      --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
+      --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
+    configs:
+      - config
+      - nodekey4
+    volumes:
+      - ./node4:/home/.eth2/beaconchaindata
+    networks:
+      sbc:
+        ipv4_address: 192.168.144.5
+  validator-init:
+    image: prysmaticlabs/prysm-validator:v1.3.11
+    command: |
+      wallet recover
+      --mnemonic-file /mnemonic
+      --accept-terms-of-use
+      --wallet-password-file /password
+      --skip-mnemonic-25th-word-check true
+      --num-accounts 4096
+    configs:
+      - password
+      - mnemonic
+    volumes:
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
+    networks:
+      sbc:
+  validator:
+    image: prysmaticlabs/prysm-validator:v1.3.11
+    command: |
+      --accept-terms-of-use
+      --config-file /config
+      --chain-config-file /config
+      --wallet-password-file /password
+      --beacon-rpc-provider node1:4000
+    configs:
+      - password
+      - config
+    volumes:
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
+    networks:
+      sbc:
+  explorer:
+    image: gobitfly/eth2-beaconchain-explorer:staging
+    command: ./explorer --config /explorer_config
+    configs:
+      - explorer_config
+      - config
+      - imprint
+    ports:
+      - '3333:3333'
+    networks:
+      sbc:
+  postgres:
+    image: postgres:13-alpine
+    command: postgres -c fsync=off
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sbc_test_db
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./explorer/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+    networks:
+      sbc:
+configs:
+  password:
+    file: ./password.txt
+  config:
+    file: ./config.yml
+  mnemonic:
+    file: ./mnemonic.txt
+  nodekey1:
+    file: ./nodekey1.txt
+  nodekey2:
+    file: ./nodekey2.txt
+  nodekey3:
+    file: ./nodekey3.txt
+  nodekey4:
+    file: ./nodekey4.txt
+  explorer_config:
+    file: ./explorer/config.yml
+  imprint:
+    file: ./explorer/imprint.html
+networks:
+  sbc:
+    external: true
+# docker network create sbc --subnet 192.168.144.0/24
