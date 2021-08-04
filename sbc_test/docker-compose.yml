@@ -17,10 +17,9 @@ services:
       --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
-    configs:
-      - config
-      - nodekey1
     volumes:
+      - ./config.yml:/config
+      - ./nodekey1.txt:/nodekey1
       - ./node1:/home/.eth2/beaconchaindata
     networks:
       sbc:
@@ -42,10 +41,9 @@ services:
       --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
-    configs:
-      - config
-      - nodekey2
     volumes:
+      - ./config.yml:/config
+      - ./nodekey2.txt:/nodekey2
       - ./node2:/home/.eth2/beaconchaindata
     networks:
       sbc:
@@ -67,10 +65,9 @@ services:
       --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QB71PuqI-ruzXRluNhhCSZemtg-xT1gzdQ7os2pGcYvRKqkH1fxFRGJ0zSSCVmf8t4BjLneVJ7jFJKuGAK4rANQBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAWJc2VjcDI1NmsxoQJhz0_3_r3Lpgy5HgJSetUZMhum1RhNBfu2PgE-eOfPPYN0Y3CCMsiDdWRwgi7g"
-    configs:
-      - config
-      - nodekey3
     volumes:
+      - ./config.yml:/config
+      - ./nodekey3.txt:/nodekey3
       - ./node3:/home/.eth2/beaconchaindata
     networks:
       sbc:
@@ -92,10 +89,9 @@ services:
       --peer "enr:-LK4QNGTkuH4UkAcGZesc2NWwldF_oE3GlROP8MJTVFVDFgnLoZ_tnJrSFeFtI3vi1QgEEcxPiwMiYkjUk-jpb9x7_sBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAKJc2VjcDI1NmsxoQP6LetjuULxgOB7ztO0qMaXqWBaCO4foFk7roPPLrZcHIN0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QKm2qWQRefE7m9-uKzOSyTS46zJ4uQz4UBMRo0CMLEKBJw1PKEU2o4k_1AmWyfX2E5I6PPOwGVrrH8I8mkhP0sUBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokAOJc2VjcDI1NmsxoQNcljAaZhnXgxAklcjDu9jiUTCVq_sABsRZEFX0MYE2VoN0Y3CCMsiDdWRwgi7g"
       --peer "enr:-LK4QFQjFG-yLJ3mn-QJcNR_Mgm9NtjpjOoP2B28OuMWX21RSpk7w5npK0HCqZIL9LNkT_E0w3pdA8pZp6tognwyLpABh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD485r5AABkZP__________gmlkgnY0gmlwhMCokASJc2VjcDI1NmsxoQLsOpYziT1HvstP58lWWMXye-QCCfGvCWoQHl6A5_67k4N0Y3CCMsiDdWRwgi7g"
-    configs:
-      - config
-      - nodekey4
     volumes:
+      - ./config.yml:/config
+      - ./nodekey4.txt:/nodekey4
       - ./node4:/home/.eth2/beaconchaindata
     networks:
       sbc:
@@ -109,10 +105,9 @@ services:
       --wallet-password-file /password
       --skip-mnemonic-25th-word-check true
       --num-accounts 4096
-    configs:
-      - password
-      - mnemonic
     volumes:
+      - ./password.txt:/password
+      - ./mnemonic.txt:/mnemonic
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
     networks:
       sbc:
@@ -124,20 +119,19 @@ services:
       --chain-config-file /config
       --wallet-password-file /password
       --beacon-rpc-provider node1:4000
-    configs:
-      - password
-      - config
     volumes:
+      - ./password.txt:/password
+      - ./config.yml:/config
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
     networks:
       sbc:
   explorer:
     image: gobitfly/eth2-beaconchain-explorer:staging
     command: ./explorer --config /explorer_config
-    configs:
-      - explorer_config
-      - config
-      - imprint
+    volumes:
+      - ./explorer/config.yml:/explorer_config
+      - ./config.yml:/config
+      - ./explorer/imprint.html:/imprint
     ports:
       - '3333:3333'
     networks:
@@ -154,25 +148,6 @@ services:
       - ./explorer/tables.sql:/docker-entrypoint-initdb.d/tables.sql
     networks:
       sbc:
-configs:
-  password:
-    file: ./password.txt
-  config:
-    file: ./config.yml
-  mnemonic:
-    file: ./mnemonic.txt
-  nodekey1:
-    file: ./nodekey1.txt
-  nodekey2:
-    file: ./nodekey2.txt
-  nodekey3:
-    file: ./nodekey3.txt
-  nodekey4:
-    file: ./nodekey4.txt
-  explorer_config:
-    file: ./explorer/config.yml
-  imprint:
-    file: ./explorer/imprint.html
 networks:
   sbc:
     external: true
