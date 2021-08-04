@@ -111,6 +111,18 @@ services:
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
     networks:
       sbc:
+  validator-list:
+    image: prysmaticlabs/prysm-validator:v1.3.11
+    command: |
+      accounts list
+      --accept-terms-of-use
+      --wallet-password-file /password
+    volumes:
+      - ./password.txt:/password
+      - ./mnemonic.txt:/mnemonic
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
+    networks:
+      sbc:
   validator:
     image: prysmaticlabs/prysm-validator:v1.3.11
     command: |

@@ -64,8 +64,8 @@ GENESIS_FORK_VERSION: 0x00006464
 BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
-# Customized for Test: ~30 min
-GENESIS_DELAY: 1800
+# Customized for Test: ~4 hours
+GENESIS_DELAY: 14400
 # 12 seconds
 SECONDS_PER_SLOT: 8
 # 2**0 (= 1) slots 12 seconds
