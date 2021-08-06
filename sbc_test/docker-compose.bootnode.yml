@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  bootnode:
+    image: gcr.io/prysmaticlabs/prysm/bootnode@sha256:e8befcda9042ba51f1eac36c35b1bddb1946ea8c38bb5bf88d45dee5e9d04654
+    command: |
+      --private 1234567812345678123456781234567812345678123456781234567812345678
+      --fork-version 00006464
+      --external-ip $IP_NODE
+      --discv5-port 11000
+    ports:
+      - '11000:11000/udp'
+      - '5000:5000'
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }

@@ -10,15 +10,15 @@ database:
 chain:
   slotsPerEpoch: 16
   secondsPerSlot: 7
-  genesisTimestamp: 1628197202
+  genesisTimestamp: 1628273013
   minGenesisActiveValidatorCount: 2048
 
 # Note: It is possible to run either the frontend or the indexer or both at the same time
 # Frontend config
 frontend:
   enabled: true # Enable or disable to web frontend
-  phase0path: "/config"
-  imprint: "/imprint"
+  phase0path: "/root/sbc_test/config/config.yml"
+  imprint: "/root/sbc_test/config/imprint.html"
   siteName: "Stake Beacon Chain (Phase 0) Block Chain Explorer"
   siteSubtitle: "Showing the <a href='https://prylabs.net'>💎 Prysm Eth2 Testnet</a>"
   csrfAuthKey: '0123456789abcdef000000000000000000000000000000000000000000000000'
@@ -49,10 +49,10 @@ indexer:
   fullIndexOnStartup: false # Perform a one time full db index on startup
   indexMissingEpochsOnStartup: false # Check for missing epochs and export them after startup
   node:
-    host: "node2" # Address of the backend node
+    host: "IP_NODE" # Address of the backend node
     port: "4000" # port of the backend node
     type: "prysm" # can be either prysm or lighthouse
-    pageSize: 100 # the amount of entries to fetch per paged rpc call
+    pageSize: 250 # the amount of entries to fetch per paged rpc call
   eth1Endpoint: 'https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9'
-  eth1DepositContractAddress: '0x26F596C5785Ad02736d80C5Cb094202a9bb6FCAA'
-  eth1DepositContractFirstBlock: 9063718
+  eth1DepositContractAddress: '0x8145D5406c8F209d05E2eEC0A5167152212B70a2'
+  eth1DepositContractFirstBlock: 9068790

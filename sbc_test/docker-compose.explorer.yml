@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  explorer:
+    image: gobitfly/eth2-beaconchain-explorer:staging
+    command: ./explorer --config /sbc_test/config/explorer.config.yml
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }
+    ports:
+      - '3333:3333'
+  postgres:
+    image: postgres:13-alpine
+    command: postgres -c fsync=off
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sbc_test_db
+    volumes:
+      - /root/sbc_test/db:/var/lib/postgresql/data
+      - /root/sbc_test/config/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }

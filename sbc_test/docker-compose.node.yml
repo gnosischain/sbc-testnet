@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+  node:
+    image: gcr.io/prysmaticlabs/prysm/beacon-chain:v1.4.3
+    command: |
+      --accept-terms-of-use
+      --contract-deployment-block 9068790
+      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
+      --bootstrap-node $BOOTNODE
+      --config-file /sbc_test/config/config.yml
+      --chain-config-file /sbc_test/config/config.yml
+      --rpc-host 0.0.0.0
+      --p2p-priv-key /sbc_test/config/nodekey.txt
+      --p2p-local-ip 0.0.0.0
+      --p2p-host-ip $IP_NODE
+    ports:
+      - '12000:12000/udp'
+      - '13000:13000'
+      - '4000:4000'
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }
+  validator-init:
+    image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
+    command: |
+      wallet recover
+      --mnemonic-file /sbc_test/config/mnemonic.txt
+      --accept-terms-of-use
+      --wallet-password-file /sbc_test/config/password.txt
+      --skip-mnemonic-25th-word-check true
+      --num-accounts 1024
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
+  validator-list:
+    image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
+    command: |
+      accounts list
+      --accept-terms-of-use
+      --wallet-password-file /sbc_test/config/password.txt
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
+  validator:
+    image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
+    command: |
+      --accept-terms-of-use
+      --config-file /sbc_test/config/config.yml
+      --chain-config-file /sbc_test/config/config.yml
+      --wallet-password-file /sbc_test/config/password.txt
+      --beacon-rpc-provider node:4000
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }

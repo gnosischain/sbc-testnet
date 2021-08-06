@@ -46,7 +46,7 @@ SECONDS_PER_ETH1_BLOCK: 15
 DEPOSIT_CHAIN_ID: 4
 DEPOSIT_NETWORK_ID: 4
 # Pyrmont test deposit contract on Rinkeby
-DEPOSIT_CONTRACT_ADDRESS: 0x26F596C5785Ad02736d80C5Cb094202a9bb6FCAA
+DEPOSIT_CONTRACT_ADDRESS: 0x8145D5406c8F209d05E2eEC0A5167152212B70a2
 # Gwei values
 # ---------------------------------------------------------------
 # 2**0 * 10**8 (= 100,000,000) Gwei
@@ -65,7 +65,7 @@ BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for Test: ~4 hours
-GENESIS_DELAY: 1200
+GENESIS_DELAY: 600
 # 12 seconds
 SECONDS_PER_SLOT: 7
 # 2**0 (= 1) slots 12 seconds
