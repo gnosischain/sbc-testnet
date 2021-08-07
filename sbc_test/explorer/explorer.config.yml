@@ -22,9 +22,10 @@ frontend:
   imprint: "/root/sbc_test/config/imprint.html"
   siteName: "Stake Beacon Chain (Phase 0) Block Chain Explorer"
   siteSubtitle: "Showing the <a href='https://prylabs.net'>💎 Prysm Eth2 Testnet</a>"
+  siteDomain: 'example.com'
   csrfAuthKey: '0123456789abcdef000000000000000000000000000000000000000000000000'
   jwtSigningSecret: "0123456789abcdef000000000000000000000000000000000000000000000000"
-  jwtIssuer: "beaconcha.in"
+  jwtIssuer: "example.com"
   jwtValidityInMinutes: 30
   server:
     host: "0.0.0.0" # Address to listen on
@@ -37,12 +38,8 @@ frontend:
     password: "password"
   sessionSecret: "<sessionSecret>"
   email:
-    smtp:
-      server: "<emailserver>"
-      host: "<emailhost>"
-      user: "<emailuser>"
-      password: "<emailpassword>"
-  flashSecret: "" # Encryption secret for flash cookies
+    mailgun:
+  eth1ExplorerBase: 'https://rinkeby.etherscan.io' # 'https://blockscout.com/xdai/mainnet'
 
 # Indexer config
 indexer:
