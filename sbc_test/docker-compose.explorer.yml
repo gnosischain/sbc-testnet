@@ -1,15 +1,17 @@
 version: '3.8'
 services:
   explorer:
-    image: gobitfly/eth2-beaconchain-explorer:staging
+    image: ghcr.io/canarynetwork/eth2-beaconchain-explorer:sbc
     command: ./explorer --config /sbc_test/config/explorer.config.yml
+    environment:
+      INDEXER_NODE_HOST:
     volumes:
       - /root/sbc_test/config:/sbc_test/config
     logging:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
     ports:
-      - '3333:3333'
+      - '80:3333'
   postgres:
     image: postgres:13-alpine
     command: postgres -c fsync=off

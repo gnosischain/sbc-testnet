@@ -8,6 +8,7 @@ database:
 
 # Chain network configuration (example will work for the prysm testnet)
 chain:
+  network: "stake"
   slotsPerEpoch: 16
   secondsPerSlot: 7
   genesisTimestamp: 1628273013
@@ -49,7 +50,7 @@ indexer:
   fullIndexOnStartup: false # Perform a one time full db index on startup
   indexMissingEpochsOnStartup: false # Check for missing epochs and export them after startup
   node:
-    host: "IP_NODE" # Address of the backend node
+    # host: "$INDEXER_NODE_PORT"
     port: "4000" # port of the backend node
     type: "prysm" # can be either prysm or lighthouse
     pageSize: 250 # the amount of entries to fetch per paged rpc call

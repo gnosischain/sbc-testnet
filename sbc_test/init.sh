@@ -49,4 +49,4 @@ IP_NODE=$IP_NODE3 docker-compose -f docker-compose.node.yml --context node3 up -
 IP_NODE=$IP_NODE4 docker-compose -f docker-compose.node.yml --context node4 up -d validator
 IP_NODE=$IP_NODE5 docker-compose -f docker-compose.node.yml --context node5 up -d validator
 
-docker-compose -f docker-compose.explorer.yml --context explorer up -d explorer
+INDEXER_NODE_HOST=$IP_NODE5 docker-compose -f docker-compose.explorer.yml --context explorer up -d explorer
