@@ -5,14 +5,14 @@ services:
     command: |
       --accept-terms-of-use
       --contract-deployment-block 9068790
-      --http-web3provider https://rinkeby.infura.io/v3/8e6efb6da18f4861b45aa22494b129c9
+      --http-web3provider https://rinkeby.infura.io/v3/5d7bd94c50ed43fab1cb8e74f58678b0
       --bootstrap-node $BOOTNODE
       --config-file /sbc_test/config/config.yml
       --chain-config-file /sbc_test/config/config.yml
       --rpc-host 0.0.0.0
-      --p2p-priv-key /sbc_test/config/nodekey.txt
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $IP_NODE
+      --min-sync-peers 2
     ports:
       - '12000:12000/udp'
       - '13000:13000'
