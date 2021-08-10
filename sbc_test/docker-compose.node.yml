@@ -44,6 +44,19 @@ services:
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
+  validator-exit:
+    image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
+    command: |
+      accounts voluntary-exit
+      --public-keys $PUBKEY
+      --accept-terms-of-use
+      --wallet-password-file /sbc_test/config/password.txt
+      --beacon-rpc-provider node:4000
+    stdin_open: true
+    tty: true
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
   validator:
     image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
     command: |
