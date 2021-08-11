@@ -4,7 +4,7 @@ services:
     image: gcr.io/prysmaticlabs/prysm/beacon-chain:v1.4.3
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9068790
+      --contract-deployment-block 9096646
       --http-web3provider https://rinkeby.infura.io/v3/5d7bd94c50ed43fab1cb8e74f58678b0
       --bootstrap-node $BOOTNODE
       --config-file /sbc_test/config/config.yml
@@ -12,11 +12,11 @@ services:
       --rpc-host 0.0.0.0
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $IP_NODE
-      --min-sync-peers 2
     ports:
       - '12000:12000/udp'
       - '13000:13000'
       - '4000:4000'
+      - '3500:3500'
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
