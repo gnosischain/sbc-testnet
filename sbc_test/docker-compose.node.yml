@@ -1,22 +1,28 @@
 version: '3.8'
 services:
   node:
-    image: gcr.io/prysmaticlabs/prysm/beacon-chain:v1.4.3
+    image: gcr.io/prysmaticlabs/prysm/beacon-chain:altair-devnet-3
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9096646
-      --http-web3provider https://rinkeby.infura.io/v3/5d7bd94c50ed43fab1cb8e74f58678b0
+      --contract-deployment-block 9101504
+      --http-web3provider https://rinkeby.infura.io/v3/$INFURA_ID
       --bootstrap-node $BOOTNODE
-      --config-file /sbc_test/config/config.yml
-      --chain-config-file /sbc_test/config/config.yml
+      --config-file /sbc_test/config/config.prysm.yml
+      --chain-config-file /sbc_test/config/config.prysm.yml
       --rpc-host 0.0.0.0
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $IP_NODE
+      --subscribe-all-subnets
+      --historical-slasher-node
+      --monitoring-host 0.0.0.0
+      --verbosity debug
+      --p2p-max-peers 5
     ports:
       - '12000:12000/udp'
       - '13000:13000'
       - '4000:4000'
       - '3500:3500'
+      - '8080:8080'
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
@@ -27,11 +33,22 @@ services:
     image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
     command: |
       wallet recover
-      --mnemonic-file /sbc_test/config/mnemonic.txt
       --accept-terms-of-use
-      --wallet-password-file /sbc_test/config/password.txt
+      --mnemonic-file /sbc_test/config/mnemonic.txt
+      --wallet-password-file /sbc_test/config/wallet_password.txt
       --skip-mnemonic-25th-word-check true
       --num-accounts 1024
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
+  validator-import:
+    image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
+    command: |
+      accounts import
+      --accept-terms-of-use
+      --keys-dir /sbc_test/config/validator_keys
+      --account-password-file /sbc_test/config/keystore_password.txt
+      --wallet-password-file /sbc_test/config/wallet_password.txt
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
@@ -40,7 +57,7 @@ services:
     command: |
       accounts list
       --accept-terms-of-use
-      --wallet-password-file /sbc_test/config/password.txt
+      --wallet-password-file /sbc_test/config/wallet_password.txt
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
@@ -50,7 +67,7 @@ services:
       accounts voluntary-exit
       --public-keys $PUBKEY
       --accept-terms-of-use
-      --wallet-password-file /sbc_test/config/password.txt
+      --wallet-password-file /sbc_test/config/wallet_password.txt
       --beacon-rpc-provider node:4000
     stdin_open: true
     tty: true
@@ -61,9 +78,9 @@ services:
     image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
     command: |
       --accept-terms-of-use
-      --config-file /sbc_test/config/config.yml
-      --chain-config-file /sbc_test/config/config.yml
-      --wallet-password-file /sbc_test/config/password.txt
+      --config-file /sbc_test/config/config.prysm.yml
+      --chain-config-file /sbc_test/config/config.prysm.yml
+      --wallet-password-file /sbc_test/config/wallet_password.txt
       --beacon-rpc-provider node:4000
     volumes:
       - /root/sbc_test/config:/sbc_test/config
