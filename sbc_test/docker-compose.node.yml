@@ -4,8 +4,8 @@ services:
     image: gcr.io/prysmaticlabs/prysm/beacon-chain:altair-devnet-3
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 9101504
-      --http-web3provider https://rinkeby.infura.io/v3/$INFURA_ID
+      --contract-deployment-block 22512289
+      --http-web3provider $XDAI_RPC_URL
       --bootstrap-node $BOOTNODE
       --config-file /sbc_test/config/config.prysm.yml
       --chain-config-file /sbc_test/config/config.prysm.yml
@@ -14,9 +14,9 @@ services:
       --p2p-host-ip $IP_NODE
       --subscribe-all-subnets
       --historical-slasher-node
+      --grpc-gateway-host 0.0.0.0
       --monitoring-host 0.0.0.0
       --verbosity debug
-      --p2p-max-peers 5
     ports:
       - '12000:12000/udp'
       - '13000:13000'
@@ -85,6 +85,17 @@ services:
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
+  validator2:
+    image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
+    command: |
+      --accept-terms-of-use
+      --config-file /sbc_test/config/config.yaml
+      --chain-config-file /sbc_test/config/config.yaml
+      --wallet-password-file /sbc_test/config/wallet_password.txt
+      --beacon-rpc-provider 174.138.47.19:4000
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/wallet2:/home/.eth2validators/prysm-wallet-v2
     logging:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }

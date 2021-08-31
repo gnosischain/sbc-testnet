@@ -1,5 +1,4 @@
-# lighthouse does not support custom names
-CONFIG_NAME: mainnet
+CONFIG_NAME: stake
 # Misc
 # ---------------------------------------------------------------
 # 2**6 (= 64)
@@ -39,15 +38,15 @@ RANDOM_SUBNETS_PER_VALIDATOR: 1
 # 2**8 (= 256)
 EPOCHS_PER_RANDOM_SUBNET_SUBSCRIPTION: 256
 # 14 (estimate from Eth1 mainnet)
-SECONDS_PER_ETH1_BLOCK: 15
+SECONDS_PER_ETH1_BLOCK: 6
 
 # Deposit contract
 # ---------------------------------------------------------------
 # Ethereum Rinkeby testnet
-DEPOSIT_CHAIN_ID: 4
-DEPOSIT_NETWORK_ID: 4
+DEPOSIT_CHAIN_ID: 77
+DEPOSIT_NETWORK_ID: 77
 # Pyrmont test deposit contract on Rinkeby
-DEPOSIT_CONTRACT_ADDRESS: 0x96df26e0779b4db7d9F941a0Df468Dd8cFBE6913
+DEPOSIT_CONTRACT_ADDRESS: 0x9EF616631C87991076af5E636b36667c335fd6dA
 # Gwei values
 # ---------------------------------------------------------------
 # 2**0 * 10**8 (= 100,000,000) Gwei
@@ -66,7 +65,7 @@ BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for Test: ~4 hours
-GENESIS_DELAY: 273600
+GENESIS_DELAY: 97200
 # 12 seconds
 SECONDS_PER_SLOT: 7
 # 2**0 (= 1) slots 12 seconds
@@ -133,3 +132,23 @@ DOMAIN_DEPOSIT: 0x03000000
 DOMAIN_VOLUNTARY_EXIT: 0x04000000
 DOMAIN_SELECTION_PROOF: 0x05000000
 DOMAIN_AGGREGATE_AND_PROOF: 0x06000000
+#DOMAIN_SYNC_COMMITTEE: 0x07000000
+#DOMAIN_SYNC_COMMITTEE_SELECTION_PROOF: 0x08000000
+#DOMAIN_CONTRIBUTION_AND_PROOF: 0x09000000
+#
+#ALTAIR_FORK_VERSION: 0x01006464
+#ALTAIR_FORK_EPOCH: 64
+#
+#INACTIVITY_SCORE_BIAS: 4
+## 2**4 (= 16)
+#INACTIVITY_SCORE_RECOVERY_RATE: 16
+#INACTIVITY_PENALTY_QUOTIENT_ALTAIR: 50331648
+#MIN_SLASHING_PENALTY_QUOTIENT_ALTAIR: 64
+#PROPORTIONAL_SLASHING_MULTIPLIER_ALTAIR: 2
+#
+## Sync committee
+## ---------------------------------------------------------------
+## 2**9 (= 512)
+#SYNC_COMMITTEE_SIZE: 512
+## 2**10 (= 1024)
+#EPOCHS_PER_SYNC_COMMITTEE_PERIOD: 1024

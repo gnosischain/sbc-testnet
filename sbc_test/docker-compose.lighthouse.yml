@@ -1,14 +1,14 @@
 version: '3.8'
 services:
   node:
-    image: kirillfedoseev/lighthouse
+    image: kirillfedoseev/lighthouse:v1.5.1-sbc
     command: |
       lighthouse beacon_node
       --testnet-dir /sbc_test/config
       --discovery-port 12000
       --enr-udp-port 12000
       --port 13000
-      --eth1-endpoints https://rinkeby.infura.io/v3/$INFURA_ID
+      --eth1-endpoints $XDAI_RPC_URL
       --disable-enr-auto-update
       --datadir /home/.eth2/beaconchaindata
       --boot-nodes $BOOTNODE
@@ -16,6 +16,10 @@ services:
       --http-address 0.0.0.0
       --http
       --debug-level debug
+      --slasher-dir /home/.eth2/slasherdata
+      --slasher
+      --slasher-max-db-size 32
+      --slasher-broadcast
     ports:
       - '12000:12000/udp'
       - '13000:13000'
@@ -23,8 +27,9 @@ services:
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
+      - /root/sbc_test/slasher_db:/home/.eth2/slasherdata
   validator-init:
-    image: kirillfedoseev/lighthouse
+    image: kirillfedoseev/lighthouse:v1.5.1-sbc
     command: |
       lighthouse account_manager validator import
       --testnet-dir /sbc_test/config
@@ -36,7 +41,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/validators:/sbc_test/validators
   validator:
-    image: kirillfedoseev/lighthouse
+    image: kirillfedoseev/lighthouse:v1.5.1-sbc
     command: |
       lighthouse validator_client
       --testnet-dir /sbc_test/config
