@@ -16,7 +16,7 @@ async function main() {
   }).send({
     from: address,
     gas: 5000000
-  })
+  }).on('receipt', (receipt) => console.log(receipt.blockNumber))
 
   console.log(newContract.options.address)
 }
