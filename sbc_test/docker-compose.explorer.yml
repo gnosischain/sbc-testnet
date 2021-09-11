@@ -12,6 +12,14 @@ services:
       options: { tag: '{{.Name}}/{{.ID}}' }
     ports:
       - '80:3333'
+  stats_exporter:
+    image: ghcr.io/canarynetwork/eth2-beaconchain-explorer:sbc
+    command: ./statistics --config /sbc_test/config/explorer.config.yml
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }
   postgres:
     image: postgres:13-alpine
     command: postgres -c fsync=off
