@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   node:
-    image: kirillfedoseev/lighthouse:v1.5.1-sbc
+    image: ghcr.io/canarynetwork/lighthouse:v1.5.2-sbc
     command: |
       lighthouse beacon_node
       --testnet-dir /sbc_test/config
@@ -9,9 +9,7 @@ services:
       --enr-udp-port 12000
       --port 13000
       --eth1-endpoints $XDAI_RPC_URL
-      --disable-enr-auto-update
       --datadir /home/.eth2/beaconchaindata
-      --boot-nodes $BOOTNODE
       --enr-address $IP_NODE
       --http-address 0.0.0.0
       --http
@@ -29,7 +27,7 @@ services:
       - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
       - /root/sbc_test/slasher_db:/home/.eth2/slasherdata
   validator-init:
-    image: kirillfedoseev/lighthouse:v1.5.1-sbc
+    image: ghcr.io/canarynetwork/lighthouse:v1.5.2-sbc
     command: |
       lighthouse account_manager validator import
       --testnet-dir /sbc_test/config
@@ -41,7 +39,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/validators:/sbc_test/validators
   validator:
-    image: kirillfedoseev/lighthouse:v1.5.1-sbc
+    image: ghcr.io/canarynetwork/lighthouse:v1.5.2-sbc
     command: |
       lighthouse validator_client
       --testnet-dir /sbc_test/config

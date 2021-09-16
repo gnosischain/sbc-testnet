@@ -1,4 +1,3 @@
-# lighthouse does not support custom names
 CONFIG_NAME: stake
 PRESET_BASE: mainnet
 # Misc
@@ -40,7 +39,7 @@ RANDOM_SUBNETS_PER_VALIDATOR: 1
 # 2**8 (= 256)
 EPOCHS_PER_RANDOM_SUBNET_SUBSCRIPTION: 256
 # 14 (estimate from Eth1 mainnet)
-SECONDS_PER_ETH1_BLOCK: 6
+SECONDS_PER_ETH1_BLOCK: 7
 
 # Deposit contract
 # ---------------------------------------------------------------
@@ -48,7 +47,7 @@ SECONDS_PER_ETH1_BLOCK: 6
 DEPOSIT_CHAIN_ID: 77
 DEPOSIT_NETWORK_ID: 77
 # Pyrmont test deposit contract on Rinkeby
-DEPOSIT_CONTRACT_ADDRESS: 0x9EF616631C87991076af5E636b36667c335fd6dA
+DEPOSIT_CONTRACT_ADDRESS: 0x884f39b6E401b08c2E67012b0525528281070cc2
 # Gwei values
 # ---------------------------------------------------------------
 # 2**0 * 10**8 (= 100,000,000) Gwei
@@ -67,9 +66,9 @@ BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for Test: ~4 hours
-GENESIS_DELAY: 97200
+GENESIS_DELAY: 84000
 # 12 seconds
-SECONDS_PER_SLOT: 7
+SECONDS_PER_SLOT: 5
 # 2**0 (= 1) slots 12 seconds
 MIN_ATTESTATION_INCLUSION_DELAY: 1
 # 2**5 (= 32) slots 6.4 minutes
@@ -152,5 +151,6 @@ PROPORTIONAL_SLASHING_MULTIPLIER_ALTAIR: 2
 # ---------------------------------------------------------------
 # 2**9 (= 512)
 SYNC_COMMITTEE_SIZE: 512
-# 2**10 (= 1024)
-EPOCHS_PER_SYNC_COMMITTEE_PERIOD: 1024
+# 2**9 (= 512)
+# assert EPOCHS_PER_SYNC_COMMITTEE_PERIOD * SLOTS_PER_EPOCH <= SLOTS_PER_HISTORICAL_ROOT
+EPOCHS_PER_SYNC_COMMITTEE_PERIOD: 512

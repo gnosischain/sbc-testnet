@@ -10,8 +10,8 @@ database:
 chain:
   network: "stake"
   slotsPerEpoch: 16
-  secondsPerSlot: 7
-  genesisTimestamp: 1630337660
+  secondsPerSlot: 5
+  genesisTimestamp: 1631432285
   minGenesisActiveValidatorCount: 2048
 
 # Note: It is possible to run either the frontend or the indexer or both at the same time
@@ -47,10 +47,10 @@ indexer:
   fullIndexOnStartup: false # Perform a one time full db index on startup
   indexMissingEpochsOnStartup: false # Check for missing epochs and export them after startup
   node:
-    # host: "$INDEXER_NODE_PORT"
+    host: '134.122.122.218'
     port: "5052" # port of the backend node
     type: "lighthouse" # can be either prysm or lighthouse
     pageSize: 250 # the amount of entries to fetch per paged rpc call
   eth1Endpoint: 'https://sokol.poa.network'
-  eth1DepositContractAddress: '0x9EF616631C87991076af5E636b36667c335fd6dA'
-  eth1DepositContractFirstBlock: 22512289
+  eth1DepositContractAddress: '0x884f39b6E401b08c2E67012b0525528281070cc2'
+  eth1DepositContractFirstBlock: 22694907
