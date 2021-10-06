@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   node:
-    image: ghcr.io/canarynetwork/lighthouse:v1.5.2-sbc
+    image: ghcr.io/openethereum/sbc-lighthouse:v2.0.0-sbc
     command: |
       lighthouse beacon_node
       --testnet-dir /sbc_test/config
@@ -27,7 +27,7 @@ services:
       - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
       - /root/sbc_test/slasher_db:/home/.eth2/slasherdata
   validator-init:
-    image: ghcr.io/canarynetwork/lighthouse:v1.5.2-sbc
+    image: ghcr.io/openethereum/sbc-lighthouse:v2.0.0-sbc
     command: |
       lighthouse account_manager validator import
       --testnet-dir /sbc_test/config
@@ -39,7 +39,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/validators:/sbc_test/validators
   validator:
-    image: ghcr.io/canarynetwork/lighthouse:v1.5.2-sbc
+    image: ghcr.io/openethereum/sbc-lighthouse:v2.0.0-sbc
     command: |
       lighthouse validator_client
       --testnet-dir /sbc_test/config

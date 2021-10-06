@@ -11,7 +11,7 @@ chain:
   network: "stake"
   slotsPerEpoch: 16
   secondsPerSlot: 5
-  genesisTimestamp: 1631432285
+  genesisTimestamp: 1633525085
   minGenesisActiveValidatorCount: 2048
 
 # Note: It is possible to run either the frontend or the indexer or both at the same time
@@ -40,6 +40,11 @@ frontend:
   email:
     mailgun:
   eth1ExplorerBase: 'https://blockscout.com/poa/sokol'
+  eth1Currency: 'STAKE'
+  eth1CurrencyName: 'Stake'
+  eth1CurrencyFormatDecimals: 5
+  eth1Label: "XDAI"
+  eth2Label: "SBC"
 
 # Indexer config
 indexer:
