@@ -86,17 +86,4 @@ services:
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
-  validator2:
-    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.1-sbc
-    command: |
-      --accept-terms-of-use
-      --config-file /sbc_test/config/config.yaml
-      --chain-config-file /sbc_test/config/config.yaml
-      --wallet-password-file /sbc_test/config/wallet_password.txt
-      --beacon-rpc-provider 174.138.47.19:4000
-    volumes:
-      - /root/sbc_test/config:/sbc_test/config
-      - /root/sbc_test/wallet2:/home/.eth2validators/prysm-wallet-v2
-    logging:
-      driver: syslog
-      options: { tag: '{{.Name}}/{{.ID}}' }
+

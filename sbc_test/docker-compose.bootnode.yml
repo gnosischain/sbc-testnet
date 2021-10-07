@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   bootnode:
-    image: gcr.io/prysmaticlabs/prysm/bootnode@sha256:e8befcda9042ba51f1eac36c35b1bddb1946ea8c38bb5bf88d45dee5e9d04654
+    image: gcr.io/prysmaticlabs/prysm/bootnode@sha256:399f39103fdc389783c48a67d6a5c1ae0ae2f299bfed6265f6cee1502d646716
     command: |
       --private 1234567812345678123456781234567812345678123456781234567812345678
       --fork-version 00006464
