@@ -5,11 +5,28 @@ services:
     command: |
       --private 1234567812345678123456781234567812345678123456781234567812345678
       --fork-version 00006464
+      --genesis-root 7d3210c8627c167c468bad87908921c9fd2760378d95fad0fcb3a3b2887a3920
       --external-ip $IP_NODE
       --discv5-port 11000
     ports:
       - '11000:11000/udp'
       - '5000:5000'
+    logging:
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }
+  lighthouse_bootnode:
+    image: ghcr.io/openethereum/sbc-lighthouse:v2.0.1-sbc
+    command: |
+      lighthouse boot_node
+      --disable-packet-filter
+      --testnet-dir /sbc_test/config
+      --datadir /home/.eth2/beaconchaindata
+      --port 9000
+      $IP_NODE
+    volumes:
+      - /root/sbc_test/config:/sbc_test/config
+      - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
+    network_mode: host
     logging:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
