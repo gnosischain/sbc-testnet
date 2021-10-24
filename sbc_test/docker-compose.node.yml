@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   node:
-    image: ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.2-sbc
+    image: ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.2-sbc.rc0
     command: |
       --accept-terms-of-use
       --contract-deployment-block 22694907
@@ -31,7 +31,7 @@ services:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
   validator-init:
-    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc.rc0
     command: |
       wallet recover
       --accept-terms-of-use
@@ -43,7 +43,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
   validator-import:
-    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc.rc0
     command: |
       accounts import
       --accept-terms-of-use
@@ -54,7 +54,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
   validator-list:
-    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc.rc0
     command: |
       accounts list
       --accept-terms-of-use
@@ -63,7 +63,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
   validator-exit:
-    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc.rc0
     command: |
       accounts voluntary-exit
       --public-keys $PUBKEY
@@ -76,7 +76,7 @@ services:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/wallet:/home/.eth2validators/prysm-wallet-v2
   validator:
-    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc.rc0
     command: |
       --accept-terms-of-use
       --config-file /sbc_test/config/config.yaml
