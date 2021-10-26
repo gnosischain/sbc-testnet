@@ -6,11 +6,9 @@ services:
       lighthouse beacon_node
       --testnet-dir /sbc_test/config
       --discovery-port 12000
-      --enr-udp-port 12000
       --port 13000
       --eth1-endpoints $XDAI_RPC_URL
       --datadir /home/.eth2/beaconchaindata
-      --enr-address $IP_NODE
       --http-address 0.0.0.0
       --http
       --debug-level debug
@@ -18,10 +16,7 @@ services:
       --slasher
       --slasher-max-db-size 32
       --slasher-broadcast
-    ports:
-      - '12000:12000/udp'
-      - '13000:13000'
-      - '5052:5052'
+    network_mode: host
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/node_db:/home/.eth2/beaconchaindata
@@ -44,10 +39,11 @@ services:
       lighthouse validator_client
       --testnet-dir /sbc_test/config
       --validators-dir /sbc_test/validators
-      --beacon-nodes http://node:5052
+      --beacon-nodes http://localhost:5052
     volumes:
       - /root/sbc_test/config:/sbc_test/config
       - /root/sbc_test/validators:/sbc_test/validators
+    network_mode: host
     logging:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
