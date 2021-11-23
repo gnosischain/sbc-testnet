@@ -20,11 +20,11 @@ ssh root@$IP_NODE4 "$CLEAN"
 ssh root@$IP_NODE5 "$CLEAN"
 ssh root@$IP_EXPLORER "$CLEAN"
 
-cd node1; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..409}_*; cd ..
-cd node2; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..409}_*; cd ..
-cd node3; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..409}_*; cd ..
-cd node4; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..409}_*; cd ..
-cd node5; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..409}_*; cd ..
+cd node1; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
+cd node2; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
+cd node3; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
+cd node4; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
+cd node5; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
 
 scp ./common/* ./*password.txt ./node1/*.{txt,tar} root@$IP_NODE1:/root/sbc_test/config
 scp ./common/* ./*password.txt ./node2/*.{txt,tar} root@$IP_NODE2:/root/sbc_test/config

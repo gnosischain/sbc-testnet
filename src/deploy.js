@@ -15,6 +15,7 @@ async function main() {
     arguments: []
   }).send({
     from: address,
+    gasPrice: '20000000000',
     gas: 5000000
   }).on('receipt', (receipt) => console.log(receipt.blockNumber))
 

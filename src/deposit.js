@@ -31,6 +31,7 @@ async function main() {
       const receipt = await contract.methods.batch_deposit(...arr).send({
         from: address,
         nonce: nonce++,
+        gasPrice: '20000000000',
         gas: 5000000
       })
       console.log(receipt.transactionHash)
@@ -42,6 +43,7 @@ async function main() {
     const receipt = await contract.methods.batch_deposit(...arr).send({
       from: address,
       nonce: nonce++,
+      gasPrice: '20000000000',
       gas: 5000000
     })
     console.log(receipt.transactionHash)

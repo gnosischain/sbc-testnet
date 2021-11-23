@@ -4,7 +4,7 @@ services:
     image: ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.2-sbc.rc0
     command: |
       --accept-terms-of-use
-      --contract-deployment-block 22694907
+      --contract-deployment-block 23784309
       --http-web3provider $XDAI_RPC_URL
       --bootstrap-node /sbc_test/config/boot_enr.yaml
       --config-file /sbc_test/config/config.yaml
