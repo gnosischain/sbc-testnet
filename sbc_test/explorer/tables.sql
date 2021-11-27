@@ -113,6 +113,25 @@ CREATE TABLE attestation_assignments_7 PARTITION OF attestation_assignments_p FO
 CREATE TABLE attestation_assignments_8 PARTITION OF attestation_assignments_p FOR VALUES IN (8);
 CREATE TABLE attestation_assignments_9 PARTITION OF attestation_assignments_p FOR VALUES IN (9);
 
+drop table if exists sync_assignments_p;
+create table sync_assignments_p
+(
+    slot           int not null,
+    validatorindex int not null,
+    status         int not null, /* Can be 0 = scheduled, 1 = executed, 2 = missed, 3 = orphaned */
+    week           int not null,
+    primary key (validatorindex, week, slot)
+) PARTITION BY LIST (week);
+
+drop table if exists sync_committees;
+create table sync_committees
+(
+    period         int not null,
+    validatorindex int not null,
+    committeeindex int not null,
+    primary key (period, validatorindex, committeeindex)
+);
+
 drop table if exists validator_balances_p;
 create table validator_balances_p
 (
@@ -145,6 +164,7 @@ create table validator_balances_recent
 );
 create index idx_validator_balances_recent_epoch on validator_balances_recent (epoch);
 create index idx_validator_balances_recent_validatorindex on validator_balances_recent (validatorindex);
+create index idx_validator_balances_recent_balance on validator_balances_recent (balance);
 
 drop table if exists validator_stats;
 create table validator_stats
@@ -161,6 +181,9 @@ create table validator_stats
     max_effective_balance   bigint,
     missed_attestations     int,
     orphaned_attestations   int,
+    participated_sync       int,
+    missed_sync             int,
+    orphaned_sync           int,
     proposed_blocks         int,
     missed_blocks           int,
     orphaned_blocks         int,
@@ -434,6 +457,7 @@ create table users_stripe_subscriptions
     price_id        character varying(256)        not null,
     active          bool not null default 'f',
     payload         json                          not null,
+    purchase_group    character varying(30)         not null default 'api',
     primary key (customer_id, subscription_id, price_id)
 );
 
@@ -453,7 +477,8 @@ create table users_app_subscriptions
     expires_at      timestamp without time zone   not null,
     reject_reason   character varying(50),
     receipt         character varying(99999)       not null,
-    receipt_hash    character varying(1024)        not null unique
+    receipt_hash    character varying(1024)        not null unique,
+    subscription_id character varying(256)         default ''
 );
 create index idx_user_app_subscriptions on users_app_subscriptions (user_id);
 

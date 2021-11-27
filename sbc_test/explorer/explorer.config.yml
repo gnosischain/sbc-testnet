@@ -13,17 +13,20 @@ chain:
   secondsPerSlot: 5
   genesisTimestamp: 1637665870
   minGenesisActiveValidatorCount: 4096
+  phase0path: "/sbc_test/config/config.yaml"
+  altairPath: "/sbc_test/config/config.yaml"
+  altairForkEpoch: 512
 
 # Note: It is possible to run either the frontend or the indexer or both at the same time
 # Frontend config
 frontend:
   enabled: true # Enable or disable to web frontend
-  phase0path: "/root/sbc_test/config/config.yaml"
-  imprint: "/root/sbc_test/config/imprint.html"
+  imprint: "/sbc_test/config/imprint.html"
   siteName: "Stake Beacon Chain (Phase 0) Block Chain Explorer"
   siteSubtitle: "Showing the <a href='https://prylabs.net'>💎 Prysm Eth2 Testnet</a>"
   siteDomain: 'example.com'
   csrfAuthKey: '0123456789abcdef000000000000000000000000000000000000000000000000'
+  csrfInsecure: true
   jwtSigningSecret: "0123456789abcdef000000000000000000000000000000000000000000000000"
   jwtIssuer: "example.com"
   jwtValidityInMinutes: 30
@@ -37,8 +40,6 @@ frontend:
     port: "5432"
     password: "password"
   sessionSecret: "<sessionSecret>"
-  email:
-    mailgun:
   eth1ExplorerBase: 'https://blockscout.com/poa/sokol'
   eth1Currency: 'STAKE'
   eth1CurrencyName: 'Stake'
