@@ -1,6 +1,6 @@
 .env
 node_modules/
 .idea/
-/validator_keys*/
+validator_keys/
 sbc_test/wallet
 sbc_test/db

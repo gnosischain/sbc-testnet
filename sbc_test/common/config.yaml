@@ -31,7 +31,7 @@ SAFE_SLOTS_TO_UPDATE_JUSTIFIED: 8
 # Validator
 # ---------------------------------------------------------------
 # 2**1 (= 2) ~16 min
-ETH1_FOLLOW_DISTANCE: 16
+ETH1_FOLLOW_DISTANCE: 1024
 # 2**4 (= 16)
 TARGET_AGGREGATORS_PER_COMMITTEE: 16
 # 2**0 (= 1)
@@ -44,10 +44,10 @@ SECONDS_PER_ETH1_BLOCK: 7
 # Deposit contract
 # ---------------------------------------------------------------
 # Ethereum Rinkeby testnet
-DEPOSIT_CHAIN_ID: 77
-DEPOSIT_NETWORK_ID: 77
+DEPOSIT_CHAIN_ID: 102
+DEPOSIT_NETWORK_ID: 102
 # Pyrmont test deposit contract on Rinkeby
-DEPOSIT_CONTRACT_ADDRESS: 0x6e972C68068E7E38478f16E7e54e4552eC82e23f
+DEPOSIT_CONTRACT_ADDRESS: 0xefE83a8AB97F51692f38524796112236fEeaa2F3
 # Gwei values
 # ---------------------------------------------------------------
 # 2**0 * 10**8 (= 100,000,000) Gwei
@@ -66,7 +66,7 @@ BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for Test: ~4 hours
-GENESIS_DELAY: 1200
+GENESIS_DELAY: 7200
 # 12 seconds
 SECONDS_PER_SLOT: 5
 # 2**0 (= 1) slots 12 seconds

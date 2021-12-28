@@ -20,17 +20,17 @@ ssh root@$IP_NODE4 "$CLEAN"
 ssh root@$IP_NODE5 "$CLEAN"
 ssh root@$IP_EXPLORER "$CLEAN"
 
-cd node1; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
-cd node2; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
-cd node3; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
-cd node4; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
-cd node5; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_{0..819}_*; cd ..
+cd node1; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_*; cd ..
+cd node2; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_*; cd ..
+cd node3; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_*; cd ..
+cd node4; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_*; cd ..
+cd node5; tar -cf keys.tar ./validator_keys/keystore-m_12381_3600_*; cd ..
 
-scp ./common/* ./*password.txt ./node1/*.{txt,tar} root@$IP_NODE1:/root/sbc_test/config
-scp ./common/* ./*password.txt ./node2/*.{txt,tar} root@$IP_NODE2:/root/sbc_test/config
-scp ./common/* ./*password.txt ./node3/*.{txt,tar} root@$IP_NODE3:/root/sbc_test/config
-scp ./common/* ./*password.txt ./node4/*.{txt,tar} root@$IP_NODE4:/root/sbc_test/config
-scp ./common/* ./*password.txt ./node5/*.{txt,tar} root@$IP_NODE5:/root/sbc_test/config
+scp ./common/* ./*password.txt ./node1/*.tar root@$IP_NODE1:/root/sbc_test/config
+scp ./common/* ./*password.txt ./node2/*.tar root@$IP_NODE2:/root/sbc_test/config
+scp ./common/* ./*password.txt ./node3/*.tar root@$IP_NODE3:/root/sbc_test/config
+scp ./common/* ./*password.txt ./node4/*.tar root@$IP_NODE4:/root/sbc_test/config
+scp ./common/* ./*password.txt ./node5/*.tar root@$IP_NODE5:/root/sbc_test/config
 scp ./common/* ./explorer/* root@$IP_EXPLORER:/root/sbc_test/config
 
 ssh root@$IP_NODE1 "cd sbc_test/config; tar -xf keys.tar; rm keys.tar"
@@ -41,8 +41,8 @@ ssh root@$IP_NODE5 "cd sbc_test/config; tar -xf keys.tar; rm keys.tar"
 
 rm node*/keys.tar
 
-IP_NODE=$IP_NODE1 docker-compose -f docker-compose.node.yml --context node1 run validator-init
-IP_NODE=$IP_NODE2 docker-compose -f docker-compose.node.yml --context node2 run validator-init
+IP_NODE=$IP_NODE1 docker-compose -f docker-compose.node.yml --context node1 run validator-import
+IP_NODE=$IP_NODE2 docker-compose -f docker-compose.node.yml --context node2 run validator-import
 IP_NODE=$IP_NODE3 docker-compose -f docker-compose.lighthouse.yml --context node3 run validator-init
 IP_NODE=$IP_NODE4 docker-compose -f docker-compose.lighthouse.yml --context node4 run validator-init
 IP_NODE=$IP_NODE5 docker-compose -f docker-compose.lighthouse.yml --context node5 run validator-init

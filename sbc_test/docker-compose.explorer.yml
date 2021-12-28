@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   explorer:
-    image: ghcr.io/openethereum/sbc-explorer:sbc
+    image: ghcr.io/gnosischain/gbc-explorer:gbc
     command: ./explorer --config /sbc_test/config/explorer.config.yml
     environment:
       INDEXER_NODE_HOST:
@@ -13,7 +13,7 @@ services:
     ports:
       - '80:3333'
   stats_exporter:
-    image: ghcr.io/openethereum/sbc-explorer:sbc
+    image: ghcr.io/gnosischain/gbc-explorer:gbc
     command: ./statistics --config /sbc_test/config/explorer.config.yml
     volumes:
       - /root/sbc_test/config:/sbc_test/config

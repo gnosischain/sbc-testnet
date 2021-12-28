@@ -8,10 +8,10 @@ database:
 
 # Chain network configuration (example will work for the prysm testnet)
 chain:
-  network: "stake"
+  network: "gnosis"
   slotsPerEpoch: 16
   secondsPerSlot: 5
-  genesisTimestamp: 1637665870
+  genesisTimestamp: 1640698640
   minGenesisActiveValidatorCount: 4096
   phase0path: "/sbc_test/config/config.yaml"
   altairPath: "/sbc_test/config/config.yaml"
@@ -24,11 +24,11 @@ frontend:
   imprint: "/sbc_test/config/imprint.html"
   siteName: "Stake Beacon Chain (Phase 0) Block Chain Explorer"
   siteSubtitle: "Showing the <a href='https://prylabs.net'>💎 Prysm Eth2 Testnet</a>"
-  siteDomain: 'example.com'
+  siteDomain: 'beacon.blockscout.com'
   csrfAuthKey: '0123456789abcdef000000000000000000000000000000000000000000000000'
   csrfInsecure: true
   jwtSigningSecret: "0123456789abcdef000000000000000000000000000000000000000000000000"
-  jwtIssuer: "example.com"
+  jwtIssuer: "beacon.blockscout.com"
   jwtValidityInMinutes: 30
   server:
     host: "0.0.0.0" # Address to listen on
@@ -40,12 +40,12 @@ frontend:
     port: "5432"
     password: "password"
   sessionSecret: "<sessionSecret>"
-  eth1ExplorerBase: 'https://blockscout.com/poa/sokol'
-  eth1Currency: 'STAKE'
-  eth1CurrencyName: 'Stake'
+  eth1ExplorerBase: 'https://blockscout.com/xdai/testnet'
+  eth1Currency: 'mGNO'
+  eth1CurrencyName: 'mGNO'
   eth1CurrencyFormatDecimals: 5
-  eth1Label: "XDAI"
-  eth2Label: "SBC"
+  eth1Label: "GC"
+  eth2Label: "GBC"
 
 # Indexer config
 indexer:
@@ -57,6 +57,6 @@ indexer:
     port: "5052" # port of the backend node
     type: "lighthouse" # can be either prysm or lighthouse
     pageSize: 250 # the amount of entries to fetch per paged rpc call
-  eth1Endpoint: 'https://sokol.poa.network'
-  eth1DepositContractAddress: '0x6e972C68068E7E38478f16E7e54e4552eC82e23f'
-  eth1DepositContractFirstBlock: 23784309
+  eth1Endpoint: 'http://104.200.30.151:8545'
+  eth1DepositContractAddress: '0xefE83a8AB97F51692f38524796112236fEeaa2F3'
+  eth1DepositContractFirstBlock: 1090836
